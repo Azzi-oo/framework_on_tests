@@ -15,8 +15,12 @@ def test_add_pet():
 def test_get_pet():
     http_client = HttpClient('https://petstore.swagger.io/v2/')
     petstore_client = PetstoreClient(http_client)
+    
+    create_response = petstore_client.add_pet()
+    assert create_response.status_code == 200
+    
     response = petstore_client.get_pet(1)
-    assert response.status_code in [200, 404]
+    assert response.status_code == 200
 
 
 def test_update_pet():
