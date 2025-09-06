@@ -1,3 +1,5 @@
+import allure
+import pytest
 from http_client import HttpClient
 from petstore_client import PetstoreClient
 
@@ -23,8 +25,9 @@ def test_update_pet():
     response = petstore_client.update_pet()
     assert response.status_code == 200
     
-    
-
 
 def test_delete_pet():
-    pass
+    http_client = HttpClient('https://petstore.swagger.io/v2/')
+    petstore_client = PetstoreClient(http_client)
+    response = petstore_client.delete_pet(1)
+    assert response.status_code == 200
