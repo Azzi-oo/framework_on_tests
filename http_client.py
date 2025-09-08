@@ -11,16 +11,16 @@ class HttpClient:
         response = requests.request(method, url, json=data)
         return response
     
-    def get(self, method: str, endpoint: str, data=None) -> requests.Response:
-        return self.request(method, endpoint, data)
+    def get(self, endpoint: str) -> requests.Response:
+        return self.request('GET', endpoint)
 
     
-    def post(self, method: str, endpoint: str, data=None) -> requests.Response:
-        return self.request(method, endpoint, data)
+    def post(self, endpoint: str, data=None) -> requests.Response:
+        return self.request('POST', endpoint, data)
     
-    def put(self, method: str, endpoint: str, data=None) -> requests.Response:
-        return self.request(method, endpoint, data)
+    def put(self, endpoint: str, data=None) -> requests.Response:
+        return self.request('PUT', endpoint, data)
 
     
-    def delete(self, method: str, endpoint: str, data=None) -> requests.Response:
-        return self.request(method, endpoint, data)
+    def delete(self, endpoint: str) -> requests.Response:
+        return self.request('DELETE', endpoint)
